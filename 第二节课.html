@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <ul>
+            <li v-for="item in users">
+                <span>{{item.name}}</span>
+                <span>{{item.age}}</span>
+                <ul>
+                    <li v-for="child in item.children">
+                        <span>{{child.name}}</span>
+                        <span>{{child.age}}</span>
+
+                    </li>
+                </ul>
+            
+            </li>
+        </ul>
+        <div v-show="isShow==1">xxx</div>
+        <input type="text"   v-model="isShow">
+    </div>
+    <script>
+      const vm =  new Vue({
+            el:'#app',
+            data:{
+                title:'hello world',
+                isShow: 2,
+            users:[{
+                    name:'张三',
+                    age:18,  
+                    children: [
+                        {
+                        name:'小三',
+                        age: 12,
+                        }
+                    ]
+            },
+            {
+                    name:'李四',
+                    age:20
+            
+            }        
+                    ],
+
+                    
+            }
+        })   
+    </script>
+</body>
+</html>
